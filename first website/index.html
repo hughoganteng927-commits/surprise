@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Selena</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="falling-flowers-container" id="flowers-bg"></div>
+
+    <audio id="backsound" src="assets/musik.mp3"></audio>
+
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-flower">🌸</div>
+        <p class="loading-text">Menyiapkan sesuatu yang spesial untukmu...</p>
+    </div>
+
+    <div class="password-screen hidden" id="password-screen">
+        <h2>Untukmu, Selena</h2>
+        <p class="sub-pass">Masukkan kode rahasianya</p>
+        
+        <div class="dots-container" id="dots-container">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        
+        <div class="keypad">
+            <button onclick="pressKey('1')">1</button>
+            <button onclick="pressKey('2')">2</button>
+            <button onclick="pressKey('3')">3</button>
+            <button onclick="pressKey('4')">4</button>
+            <button onclick="pressKey('5')">5</button>
+            <button onclick="pressKey('6')">6</button>
+            <button onclick="pressKey('7')">7</button>
+            <button onclick="pressKey('8')">8</button>
+            <button onclick="pressKey('9')">9</button>
+            <button class="btn-clear" onclick="clearKey()">X</button>
+            <button onclick="pressKey('0')">0</button>
+            <button class="btn-enter" onclick="checkPassword()">↵</button>
+        </div>
+        
+        <p class="hint">Petunjuk: tanggal seorang peri lahir</p>
+    </div>
+
+    <div id="error-popup" class="popup-overlay hidden">
+        <div class="popup-box">
+            <div class="popup-icon">🌸</div>
+            <h3>Kodenya Salah Atuhh...</h3>
+            <p>Salah atuhh, masa lupa sama tanggal ultah sendiri 🙄</p>
+            <button class="btn-popup-retry" onclick="closePopup()">Coba Lagi</button>
+        </div>
+    </div>
+
+    <main id="main-content" class="hidden">
+        
+        <header class="hero-section">
+            <p class="tag">Hari Spesialmu</p>
+            <h1>
+                Selamat<br>
+                <span class="birthday">Ulang Tahun ke-13</span><br>
+                Selena
+            </h1>
+            <p class="date">16 JUNI — HARI PALING SPESIAL</p>
+            <div class="scroll-indicator">GESER KE BAWAH ↓</div>
+        </header>
+
+        <hr class="divider">
+
+        <section class="bouquet-section">
+            <p class="tag">— KADO PERTAMAKU —</p>
+            <h2>Buket Bunga Digital</h2>
+            <p class="sub-tag">Sentuh setiap bunga untuk melihat pesan di dalamnya</p>
+            
+            <div class="pot-wrapper">
+                <div class="flower-pot">
+                    <div class="flower f-jasmine" onclick="revealFlower('Layaknya bunga ini sangat bersih layaknya malaikat yang turun ke Bumi untuk aku. 🤍')">🌼</div>
+                    <div class="flower f-sun" onclick="revealFlower('Bunga ini layaknya senyuman indahmu yang kamu lontarkan kepadaku. 🌻')">🌻</div>
+                    <div class="flower f-lotus" onclick="revealFlower('Layaknya bunga yang hidup di dalam penderitaan ini, ia tetap bisa tumbuh subur walaupun di dalam kubangan air yang kotor. Hal ini sama sepertimu yang terus melangkah walau banyak kubangan air yang kotor di depan sana, bahkan langkah yang sedang kamu jalani sekarang. 🪷')">🪷</div>
+                </div>
+            </div>
+            <div id="bouquet-msg" class="msg-box">Sentuh salah satu bunga...</div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="letter-section">
+            <p class="tag">— DARI PERASAANKU YANG KURAHASIAKAN —</p>
+            <h2>Sepucuk Surat Untukmu</h2>
+            <div class="letter-card">
+                <p class="letter-date">16 Juni 2026</p>
+                <h3>Untuk Selena,</h3>
+                
+                <p>Kepada kamu yang sangat inginku miliki,</p>
+                <p>Walaupun banyak orang yang menghina tampang dan sifatmu yang sangat sempurna, kamu tetap ingin mencoba segala hal yang bahkan terdengar mustahil. Walaupun dunia memandang sebelah mata, kamu tetap berdiri teguh untuk menghadapi itu semua.</p>
+                <p>Di saat aku berada di masa paling burukku, hanya kamulah yang datang kepadaku. Setelah kejadian itu, waktu-waktu yang kujalani denganmu terasa sangat sempurna. Kemampuan kami berdua layaknya Bumi dan Langit, tapi hal inilah yang membuat momen-momen bersamamu terasa lebih indah.</p>
+                <p>Hati yang bersih layaknya bunga melati. Di saat bersamamu, aku merasakan seperti masuk ke dalam sebuah taman bunga melati. Sifatmu itu yang sangat periang dan aktif, sering kali membuatku sedikit khawatir. Aku berupaya mengingatkanmu agar kamu dapat menjaga dirimu sendiri, tetapi upaya itu sepertinya gagal.</p>
+                <p>Aku hanya ingin kamu dapat menjaga dirimu sendiri di saatku sudah tidak ada dan tidak bersamamu........</p>
+                <p>Terima kasih telah hadir dalam hidupku, keberadaanmu memberikanku kehangatan di tengah badai salju.</p>
+                
+                <p class="signature">Dengan seluruh niatan dan perasaanku,<br><strong>Hugho 💖</strong></p>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="playlist-section">
+            <p class="tag">— LAGU KITA —</p>
+            <h2>Putar Lagu Spesial</h2>
+            <div class="music-player">
+                <div class="disc" id="disc">🎵</div>
+                <h3 id="song-title">Golden Hour</h3>
+                <p id="song-artist">JVKE</p>
+                <button class="btn-play" onclick="togglePlay()">Putar / Jeda</button>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="jar-section">
+            <p class="tag">— UNTUK KAMU INGAT —</p>
+            <h2>Alasan Aku Bersyukur Mengenalmu</h2>
+            <div class="jar-container" onclick="shakeJar()">
+                <div class="jar" id="jar">🫙</div>
+                <p class="jar-instruction">Ketuk botol untuk mengambil pesan 💌</p>
+            </div>
+            <div id="jar-msg" class="msg-box hidden"></div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="motivation-section">
+            <p class="tag">— PESAN KHUSUS UNTUKMU —</p>
+            <h2>Ruang Semangat</h2>
+            <p class="sub-tag">Ketuk setiap kartu di bawah ini untuk membuka pesan penguat hatimu 🌸</p>
+            
+            <div class="motivation-grid">
+                <div class="motivation-card" onclick="toggleMotivation(this)">
+                    <div class="card-front">
+                        <div class="card-icon">🎯</div>
+                        <h3>Tentang Impian & SMK-mu</h3>
+                        <p class="tap-hint">Ketuk untuk membaca...</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Aku tahu belakangan ini hatimu lagi berat banget karena masalah SMK itu. Rasanya sedih dan drop ketika impian yang ingin kamu tuju belum mendapat restu penuh dari keluarga. Tapi ingat ya, sekolah di mana pun tidak akan pernah bisa membatasi potensi besar yang ada di dalam dirimu.</p>
+                        <p>Sifatmu yang gigih, keras kepala untuk hal baik, dan selalu ingin mencoba hal baru adalah modal utamamu. Jangan patah semangat dulu, badai ini pasti berlalu dan jalan suksesmu akan tetap terbuka lebar lewat caramu sendiri! ✨</p>
+                    </div>
+                </div>
+
+                <div class="motivation-card" onclick="toggleMotivation(this)">
+                    <div class="card-front">
+                        <div class="card-icon">👑</div>
+                        <h3>Tentang Sifat Humormu & Pertemanan</h3>
+                        <p class="tap-hint">Ketuk untuk membaca...</p>
+                    </div>
+                    <div class="card-back">
+                        <p>Kamu itu orang yang luar biasa ceria, aktif, *playful*, dan punya magnet yang bikin semua orang nyaman berteman denganmu. Itu adalah kelebihanmu yang sangat berharga! Tapi, dunia di luar sana punya banyak warna.</p>
+                        <p>Sambil terus menebar tawa, kamu juga harus mulai belajar menyaring ya. Tidak semua orang yang tertawa bersamamu punya ketulusan yang sama di hatinya. Jaga dirimu baik-baik, taruh batasan yang tegas, dan kelilingi dirimu hanya dengan orang-orang yang benar-benar menghargai dan melindungimu di masa sulit. Tetap waspada, oke? 💖</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="cake-section">
+            <p class="tag">— MOMEN SPESIAL —</p>
+            <div id="wish-ready-container">
+                <h2>Siap untuk membuat permintaan di ulangtahunmu?</h2>
+                <button class="btn-ready" onclick="showCake()">Siap, Berdoa Sekarang 💖</button>
+            </div>
+
+            <div id="cake-area" class="hidden">
+                <div class="cake-wrapper">
+                    <div class="candle" id="candle">
+                        <div class="flame" id="flame"></div>
+                    </div>
+                    <div class="cake">🎂</div>
+                </div>
+                <p class="cake-instruction">Pejamkan matamu, buat keinginan di dalam hati...</p>
+                <button class="btn-blow" id="blow-btn" onclick="blowCandle()">Tiup Lilinnya 🕯️💨</button>
+            </div>
+
+            <div id="wish-box-area" class="wish-box-container hidden">
+                <h3>✨ Tulis Semua Permintaan & Permohonanmu ✨</h3>
+                <p class="sub-tag">Ketik apa saja yang kamu semogakan di usiamu saat ini:</p>
+                <textarea id="wish-text" placeholder="Aku berharap semoga... 🌸"></textarea>
+                <button class="btn-save-wish" onclick="saveWish()">Simpan Permohonan 💖</button>
+                <div id="wish-saved-msg" class="msg-box hidden">Permohonanmu telah tersimpan rapi di alam semesta. Semoga semuanya terwujud satu per satu, Selena... ✨</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Semoga hidupmu selalu dipenuhi bunga-bunga indah 🌸</p>
+            <p class="sub-foot">Dengan cinta yang tak pernah habis 💕</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

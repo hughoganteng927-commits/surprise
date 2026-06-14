@@ -1,0 +1,327 @@
+/* --- RESET STYLE DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2b1022;
+    color: #fce2ec;
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- BACKGROUND KELOPAK BUNGA GUGUR --- */
+.falling-flowers-container {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 99; overflow: hidden;
+}
+.falling-flower {
+    position: absolute; font-size: 1.5rem; animation: fall linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- 1. LOADING SCREEN --- */
+.loading-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b1022;
+}
+.loading-flower {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: spin 2.5s linear infinite;
+}
+.loading-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #cbd5e1;
+    letter-spacing: 1px;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* --- 2. SCREEN PASSWORD --- */
+.password-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2b1022;
+    width: 100%;
+}
+.password-screen h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+.sub-pass {
+    font-size: 1.1rem;
+    color: #a17892;
+    margin-bottom: 25px;
+}
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+    width: 100%;
+}
+.dot {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #ff9ebb;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+.dot.active {
+    background-color: #ff9ebb;
+    box-shadow: 0 0 10px #ff9ebb;
+}
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 75px);
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+.keypad button {
+    width: 75px;
+    height: 75px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 158, 187, 0.2);
+    color: #fce2ec;
+    font-size: 1.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.keypad button:active {
+    background-color: rgba(255, 158, 187, 0.25);
+}
+.hint {
+    font-size: 1.05rem;
+    color: #a17892;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* --- POP-UP KUSTOM KESALAHAN --- */
+.popup-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(22, 6, 17, 0.9);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 999;
+}
+.popup-box {
+    background-color: #38182e;
+    border: 1px solid rgba(255, 158, 187, 0.3);
+    padding: 35px 25px;
+    border-radius: 20px;
+    max-width: 320px;
+    width: 85%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+.popup-icon { font-size: 3rem; margin-bottom: 15px; }
+.popup-box h3 { font-size: 1.5rem; color: #ff9ebb; margin-bottom: 10px; font-weight: 400; }
+.popup-box p { font-size: 1.1rem; color: #fce2ec; margin-bottom: 25px; font-style: italic; line-height: 1.4; }
+.btn-popup-retry {
+    background-color: #ff9ebb; color: #2b1022; border: none;
+    padding: 10px 30px; font-size: 1.1rem; font-family: 'Cormorant Garamond', serif;
+    border-radius: 20px; cursor: pointer; font-weight: 500; transition: background 0.2s;
+}
+.btn-popup-retry:hover { background-color: #ffb6cd; }
+
+/* --- 3. KONTEN UTAMA --- */
+main {
+    animation: fadeIn 1.5s ease forwards;
+    padding-bottom: 60px;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.hero-section h1 {
+    font-size: 3.5rem; font-weight: 300; line-height: 1.2; letter-spacing: 2px; margin: 15px 0;
+}
+.birthday { font-style: italic; color: #ff9ebb; font-weight: 400; }
+.tag { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: #ff9ebb; }
+.date { font-size: 0.95rem; letter-spacing: 2px; color: #a17892; margin-top: 10px; }
+.scroll-indicator { margin-top: 40px; font-size: 0.9rem; animation: bounce 2s infinite; letter-spacing: 2px; }
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+.divider {
+    border: none; height: 1px;
+    background: linear-gradient(to right, transparent, #ff9ebb, transparent);
+    margin: 60px auto; width: 60%;
+}
+
+/* Penataan Umum Seksi */
+.bouquet-section, .letter-section, .playlist-section, .jar-section, .motivation-section, .cake-section {
+    padding: 40px 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+h2 { font-size: 2.2rem; font-weight: 300; margin: 10px 0 20px; letter-spacing: 1px; }
+.sub-tag { font-size: 1.1rem; color: #a17892; font-style: italic; margin-bottom: 30px; }
+
+/* --- KADO 1: BUKET BUNGA --- */
+.pot-wrapper { display: flex; justify-content: center; margin-bottom: 30px; }
+.flower-pot {
+    background-color: #3d1c32; padding: 20px 40px; border-radius: 50px;
+    display: flex; gap: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.flower { font-size: 2.5rem; cursor: pointer; transition: transform 0.2s; }
+.flower:hover { transform: scale(1.3) rotate(10deg); }
+.msg-box {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 158, 187, 0.15);
+    padding: 20px; border-radius: 15px; font-style: italic;
+    font-size: 1.15rem; line-height: 1.6; color: #fce2ec;
+    max-width: 480px; margin: 20px auto; min-height: 80px; transition: all 0.3s ease;
+}
+
+/* --- KADO 2: SURAT --- */
+.letter-card {
+    background-color: #38182e; padding: 40px 30px; border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4); text-align: left;
+    border: 1px solid rgba(255, 158, 187, 0.1);
+}
+.letter-date { font-size: 1rem; color: #a17892; margin-bottom: 20px; font-style: italic; }
+.letter-card h3 { font-size: 1.5rem; font-weight: 400; margin-bottom: 15px; color: #ff9ebb; }
+.letter-card p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 18px; color: #fce2ec; }
+.signature { text-align: right; margin-top: 30px; font-size: 1.2rem; }
+
+/* --- KADO 3: PLAYLIST MUSIK --- */
+.music-player {
+    background-color: #38182e; padding: 30px; border-radius: 20px;
+    border: 1px solid rgba(255, 158, 187, 0.15);
+    display: flex; flex-direction: column; align-items: center;
+}
+.disc {
+    width: 80px; height: 80px; background-color: #2b1022;
+    border: 3px solid #ff9ebb; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 2rem; margin-bottom: 15px;
+}
+.disc.playing { animation: spin 4s linear infinite; }
+.music-player h3 { font-size: 1.4rem; font-weight: 400; margin-bottom: 5px; }
+.music-player p { color: #a17892; margin-bottom: 20px; font-style: italic; }
+.btn-play {
+    background-color: #ff9ebb; color: #2b1022; border: none;
+    padding: 8px 25px; font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; border-radius: 20px; cursor: pointer; font-weight: 500;
+}
+
+/* --- KADO 4: BOTOL KACA --- */
+.jar-container { margin-bottom: 25px; cursor: pointer; }
+.jar { font-size: 5rem; display: inline-block; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.jar.shake { animation: shakeAnim 0.5s ease; }
+@keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+.jar-instruction { font-size: 1.1rem; color: #a17892; font-style: italic; margin-top: 10px; }
+
+/* --- KADO 5: RUANG SEMANGAT BOLAK-BALIK --- */
+.motivation-grid { display: flex; flex-direction: column; gap: 25px; margin-top: 20px; perspective: 1000px; }
+.motivation-card {
+    background-color: #38182e; border: 1px solid rgba(255, 158, 187, 0.15);
+    border-radius: 20px; min-height: 180px; cursor: pointer; position: relative;
+    transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); display: flex; justify-content: center; align-items: center;
+}
+.motivation-card.flipped { transform: rotateY(180deg); background-color: #441d38; border-color: rgba(255, 158, 187, 0.3); }
+.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; padding: 25px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.card-front { z-index: 2; }
+.card-icon { font-size: 2.5rem; margin-bottom: 10px; }
+.card-front h3 { font-size: 1.4rem; font-weight: 400; color: #ff9ebb; margin-bottom: 8px; }
+.tap-hint { font-size: 0.9rem; color: #a17892; font-style: italic; }
+.card-back { transform: rotateY(180deg); text-align: left; justify-content: flex-start; overflow-y: auto; }
+.card-back p { font-size: 1.1rem; line-height: 1.5; color: #fce2ec; margin-bottom: 12px; font-style: italic; }
+
+/* --- KADO 6: KUE & TIUP LILIN --- */
+.btn-ready {
+    background-color: #ff9ebb; color: #2b1022; border: none;
+    padding: 12px 30px; font-size: 1.2rem; font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; border-radius: 25px; cursor: pointer; transition: all 0.2s;
+    margin-top: 15px;
+}
+.btn-ready:hover, .btn-blow:hover, .btn-save-wish:hover { background-color: #ffb6cd; transform: scale(1.03); }
+.cake-wrapper { position: relative; display: inline-block; margin: 30px 0; }
+.cake { font-size: 6rem; position: relative; z-index: 1; }
+.candle {
+    width: 10px; height: 35px; background: linear-gradient(to top, #ffdde1, #ee9ca7);
+    position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+    z-index: 2; border-radius: 3px;
+}
+.flame {
+    width: 14px; height: 20px; background: linear-gradient(to bottom, #ff9ebb, #ff4e50);
+    border-radius: 50% 50% 20% 20%; position: absolute; top: -22px; left: 50%;
+    transform: translateX(-50%); animation: flicker 0.1s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px #ff4e50, 0 0 20px #ff9ebb;
+}
+@keyframes flicker {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+    100% { transform: translateX(-48%) scale(1.08) skewX(2deg); opacity: 1; }
+}
+.cake-instruction { font-size: 1.15rem; font-style: italic; color: #a17892; margin-bottom: 20px; }
+.btn-blow {
+    background-color: #ff9ebb; color: #2b1022; border: none;
+    padding: 10px 25px; font-size: 1.1rem; font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; border-radius: 20px; cursor: pointer;
+}
+.wish-box-container {
+    background-color: #38182e; padding: 30px 25px; border-radius: 20px;
+    border: 1px solid rgba(255, 158, 187, 0.2); margin-top: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4); animation: fadeIn 0.8s ease forwards;
+}
+.wish-box-container h3 { font-size: 1.4rem; font-weight: 400; color: #ff9ebb; margin-bottom: 5px; }
+.wish-box-container textarea {
+    width: 100%; height: 120px; background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 158, 187, 0.2); border-radius: 12px;
+    color: #fce2ec; padding: 15px; font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; resize: none; margin: 20px 0; outline: none;
+}
+.wish-box-container textarea:focus { border-color: #ff9ebb; box-shadow: 0 0 8px rgba(255, 158, 187, 0.3); }
+.btn-save-wish {
+    background-color: #ff9ebb; color: #2b1022; border: none;
+    padding: 10px 30px; font-size: 1.1rem; font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; border-radius: 20px; cursor: pointer;
+}
+
+/* --- FOOTER --- */
+.footer { padding: 40px 20px 20px; margin-top: 40px; }
+.footer p { font-size: 1.3rem; font-style: italic; color: #ff9ebb; }
+.sub-foot { font-size: 1rem !important; color: #a17892 !important; margin-top: 5px; } 
